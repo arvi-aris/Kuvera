@@ -4,20 +4,14 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-
+import KuveraHome from './components/kuveraHome.jsx'
 injectTapEventPlugin();
-import { green100, green500, green700 } from 'material-ui/styles/colors';
-const styles = {
-    bodyPadd: {
-     margin:0
-    }
-};
 
 class Home extends React.Component {
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <div  inputStyle={styles.bodyPadd}> hi </div>
+      <MuiThemeProvider >
+        <KuveraHome />
       </MuiThemeProvider>
     );
   }
