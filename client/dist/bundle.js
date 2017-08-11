@@ -37692,7 +37692,6 @@ var style = {
         left: '40%'
     },
     heightFull: {
-        height: '100%',
         backgroundColor: 'rgba(136, 130, 130, 0.1)'
     }
 };
@@ -37801,7 +37800,6 @@ var Form = function (_React$Component) {
                             value: query.InvestedAmount,
                             onChange: _this2.handleAmountChange.bind(_this2, index)
                         }),
-                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             _SelectField2.default,
                             {
@@ -37831,7 +37829,6 @@ var Form = function (_React$Component) {
                             _react2.default.createElement(_MenuItem2.default, { value: 'FC19', primaryText: 'Axis Gold Fund ' }),
                             _react2.default.createElement(_MenuItem2.default, { value: 'FC20', primaryText: 'Axis Nifty ETF ' })
                         ),
-                        _react2.default.createElement('br', null),
                         _react2.default.createElement(_DatePicker2.default, { hintText: 'Choose date of investment',
                             mode: 'landscape',
                             shouldDisableDate: _this2.disableDate,
