@@ -14,6 +14,8 @@ import Add from 'material-ui/svg-icons/content/add';
 import Remove from 'material-ui/svg-icons/content/remove';
 import schemeArr from './scheme.js';
 import axios from 'axios';
+import CircularProgress from 'material-ui/CircularProgress';
+
 const style = {
     divStyle : {
         position:'absolute',
@@ -38,14 +40,14 @@ class Form extends React.Component {
                 InvestedAmount : 10000,
                 invalidQuery : true ,
                 schemeName : "Axis Banking & PSU Debt Fund - Bonus option",
-                option : "Bonus option",
+                option : "Bonus Option",
                 schemeArr:schemeArr.find(function(obj){
                     return obj.key === "FC1"
                 }).options
                
             }],
             count : 1,
-
+            bar : false
         }
     }
 
@@ -123,6 +125,7 @@ class Form extends React.Component {
                     ];
         let date = new Date(dateObj)
         let day = date.getDate()
+        day = (day < 10) ? "0"+day : day;
         let month = monthNames[date.getMonth()];
         let year = date.getFullYear();
         return day+"-"+month+"-"+year;
@@ -131,23 +134,26 @@ class Form extends React.Component {
     submitQuery(index,event){
         console.log(this.state)
         let param = this.getPayLoad();
+        this.setState({
+            bar:true
+        })
         axios.post('/submitQuery', param)
-        .then((response) => {
-            console.log(response);
+        .then((response) => { 
+            this.setState({
+                returnAmount : response.data.tot,
+                bar : false
+            })
         })
         .catch((error) => {
-            // this.setState({
-            //     returnAmount : 10000
-            // })
+            this.setState({
+                bar : false
+            })
         });
     }
 
     resetQuery(index,event){
         this.setState({
-            schemeNameCode : "FC1",
-            pickedDate : new Date(),
-            InvestedAmount : 10000,
-            invalidQuery : true
+            returnAmount : ""
         });
     }
 
@@ -160,7 +166,7 @@ class Form extends React.Component {
                 InvestedAmount : 10000,
                 invalidQuery : true ,
                 schemeName : "Axis Banking & PSU Debt Fund - Bonus option",
-                option : "Bonus option",
+                option : "Bonus Option",
                 schemeArr : schemeArr.find(function(obj){
                     return obj.key === "FC1"
             }).options
@@ -170,6 +176,7 @@ class Form extends React.Component {
             queryArr:queryArr,
             count:count+1
         })
+        this.resetQuery();
     }
 
     removeQuery(index,event){ 
@@ -185,7 +192,8 @@ class Form extends React.Component {
     render() {
         return (
         <div style={style.heightFull} >
-         
+           {this.state.bar ?   
+                    <CircularProgress size={20} thickness={3} /> : <br />}
         {this.state.queryArr.map((query,index) => {
             return  <div key={index}>
                              <FormField inline >

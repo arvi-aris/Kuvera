@@ -2,7 +2,7 @@ var schemeArr = [
 	{
 		"name" : "Axis Banking & PSU Debt Fund",
 		"key" : "FC1",
-		"options" : ["Bonus option","Daily Dividend Option","Direct Plan - Bonus Option","Direct Plan - Daily Dividend Option","Direct Plan - Growth Option","Direct Plan - Monthly Dividend Option", "Direct Plan - Weekly Dividend Option","Growth option","Monthly Dividend Option"," Weekly Dividend option"]
+		"options" : ["Bonus Option","Daily Dividend Option","Direct Plan - Bonus Option","Direct Plan - Daily Dividend Option","Direct Plan - Growth Option","Direct Plan - Monthly Dividend Option", "Direct Plan - Weekly Dividend Option","Growth option","Monthly Dividend Option"," Weekly Dividend option"]
 	},
 	{
 		"name" : "Axis Corporate Debt Opportunities Fund",
