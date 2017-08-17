@@ -69,16 +69,14 @@ function getReturnAmount(queryArr,callback,res){
         //   res.end();
         // }
         results.push(result); 
-        next()    
+        next()        
       })
     }, function(result) {
       let totalAmt = 0;
       for(i=0;i<results.length;i++){
         totalAmt += results[i];
       }
-    console.log(totalAmt)
-res.set('Content-Type', 'text/html');
-res.send({ tot :totalAmt});
+  res.json({ tot :totalAmt});
     }); 	
 }
 
@@ -96,8 +94,8 @@ function getRetAmtForSpecificQuery(queryObject,investedAmount,callback){
       if(result.length == 0) {
         callback(0)
       }
-	  	let NAVonInvestedDate = result[0].nav ? result[0].nav : 1;
-	  	let NAVonToday = result[1].nav ? result[1].nav : 1;
+	  	let NAVonInvestedDate = result[0] ? result[0].nav : 1;
+	  	let NAVonToday = result[1] ? result[1].nav : 1;
 	  	callback((investedAmount / NAVonInvestedDate) * NAVonToday);
 	  })
     .catch(function(err){
