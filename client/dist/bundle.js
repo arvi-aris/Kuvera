@@ -38934,7 +38934,7 @@ var Form = function (_React$Component) {
         _this.state = {
             queryArr: [{
                 schemeNameCode: "FC1",
-                pickedDate: new Date(),
+                pickedDate: new Date('01-Apr-2015'),
                 InvestedAmount: 10000,
                 invalidQuery: true,
                 schemeName: "Axis Banking & PSU Debt Fund - Bonus option",
@@ -39005,7 +39005,7 @@ var Form = function (_React$Component) {
     }, {
         key: 'disableDate',
         value: function disableDate(date) {
-            if (date > Date.now()) {
+            if (date > Date.now() || date < new Date('01-Apr-2015')) {
                 return true;
             }
             return false;
@@ -39072,7 +39072,7 @@ var Form = function (_React$Component) {
             var count = this.state.count;
             queryArr.push({
                 schemeNameCode: "FC1",
-                pickedDate: new Date(),
+                pickedDate: new Date('01-Apr-2015'),
                 InvestedAmount: 10000,
                 invalidQuery: true,
                 schemeName: "Axis Banking & PSU Debt Fund - Bonus option",
